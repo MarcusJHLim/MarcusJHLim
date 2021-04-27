@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Index Page</title>
+</head>
+<body>
+<div>
+ <h2><a href="new_add">Add Employee</a></h2>
+ <br/>
+ <table border="1">
+  <thead>
+   <tr>
+    <td>Employee Name</td>
+    <td>Employee Salary</td>
+    <td>Edit</td>
+    <td>Delete</td>
+   </tr>
+  </thead>
+  <tbody>
+   <tr th:each="employee : ${getAllEmployee}">
+    <td th:text="${employee.name}">Name</td>
+    <td th:text="${employee.monthlySalary}">Salary</td>
+    
+    <td><a th:href="@{'/edit/' + ${employee.name}}">Edit</a></td>
+    
+    <td><a th:href="@{'/delete/' + ${employee.name}}">Delete</a></td>
+   </tr>
+  </tbody>
+ </table>
+</div>
+
+</body>
+</html>
